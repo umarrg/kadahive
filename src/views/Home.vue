@@ -12,8 +12,8 @@
       <v-spacer></v-spacer>
       <v-spacer></v-spacer>
       <div class="d-flex">
-        <v-btn text large color="secondary">login</v-btn>
-        <v-btn color="secondary" large>login</v-btn>
+        <v-btn text large color="secondary" to="/login">login</v-btn>
+        <v-btn color="secondary" large to="/register">Sign up</v-btn>
       </div>
       <v-spacer></v-spacer>
     </v-app-bar>
