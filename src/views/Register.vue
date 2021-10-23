@@ -2,7 +2,7 @@
   <v-app class="">
     <v-row>
       <v-col cols="12" md="6">
-        <v-img src="../assets/jh.jpeg" contain />
+         <v-img src="../assets/st.svg" contain height="100%" width="100%" />
       </v-col>
       <v-col cols="12" md="6">
         <v-container fill-height>

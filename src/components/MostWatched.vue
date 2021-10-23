@@ -12,63 +12,52 @@
           </div>
         </v-col>
 
-        <v-col cols="12" md="12">
-          <v-carousel hide-delimiters show-arrows-on-hover circle >
-            <template v-for="(item, index) in slider">
-              <v-carousel-item
-                v-if="(index + 1) % columns === 1 || columns === 1"
-                :key="index"
-              >
-                <v-row class="flex-nowrap" style="height: 100%">
-                  <template v-for="(n, i) in columns">
-                    <template v-if="+index + i < slider.length">
-                      <v-col :key="i">
-                        <v-sheet
-                          v-if="+index + i < slider.length"
-                          :color="slider[+index + i]"
-                          height="100%"
-                        >
-                          <v-row
-                            class="fill-height"
-                            align="center"
-                            justify="center"
-                          >
-                            <div class="display-3">{{ +index + i + 1 }}</div>
-                          </v-row>
-                        </v-sheet>
-                      </v-col>
-                    </template>
-                  </template>
-                </v-row>
-              </v-carousel-item>
-            </template>
-          </v-carousel>
+        <v-col cols="12" md="12" class="px-0 mx-0">
+          <v-slide-group v-model="model" dark show-arrows class="ma-0">
+            <v-slide-item v-for="item in items" :key="item.id">
+              <div rounded="lg" class="">
+                <v-img
+                  class="ma-4"
+                  height="200"
+                  width="300"
+                  :src="item.thumbnail"
+                  @click="go(item.id)"
+                />
+              </div>
+            </v-slide-item>
+          </v-slide-group>
         </v-col>
       </v-row>
     </v-container>
   </v-row>
 </template>
-
 <script>
 export default {
   data() {
     return {
-      slider: [
-        "red",
-        "green",
-        "orange",
-        "blue",
-        "pink",
-        "purple",
-        "indigo",
-        "cyan",
-        "deep-purple",
-        "light-green",
-        "deep-orange",
-        "blue-grey",
-      ],
+      model: null,
+      items: [],
     };
   },
+  methods: {
+    fetchTrending() {
+      fetch("http://localhost:3000/videos", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.items = res.payload;
+          console.log(res.payload);
+        });
+    },
+    go(id) {
+      this.$router.push(`/videoView/${id}`);
+    },
+  },
+
   computed: {
     columns() {
       if (this.$vuetify.breakpoint.xl) {
@@ -85,6 +74,10 @@ export default {
 
       return 1;
     },
+  },
+
+  mounted() {
+    this.fetchTrending();
   },
 };
 </script>

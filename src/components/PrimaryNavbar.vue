@@ -1,0 +1,55 @@
+<template>
+  <v-app-bar elevate-on-scroll app color="primary">
+    <v-spacer></v-spacer>
+    <v-app-bar-title class="white--text">
+      <v-btn text to="/" depressed color="white">Logo</v-btn>
+    </v-app-bar-title>
+    <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
+    <div class="d-flex">
+      <v-btn text color="white" to="/videos" class="mx-1">videos</v-btn>
+      <v-btn text color="white">admin</v-btn>
+    </div>
+    <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
+    <div class="d-flex" v-if="logged">
+      <v-btn text large color="secondary" to="/login" class="mx-2">login</v-btn>
+      <v-btn color="secondary" large to="/register">Sign up</v-btn>
+    </div>
+    <div class="d-flex align-center justify-center">
+      <v-avatar size="30" color="white">
+        <img src="../assets/im.jpeg" alt="picture" />
+      </v-avatar>
+      <span class="mx-2 white--text">Abdullah Gumi</span>
+      <v-menu bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn dark icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-chevron-down</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item to="/userVideos" dense>
+            <v-list-item-title class="px-0 mx-0">
+              <v-icon left>mdi-view-dashboard</v-icon> Dashboard
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item dense>
+            <v-list-item-title>
+              <v-icon>mdi-logout</v-icon> Logout
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </div>
+    <v-spacer></v-spacer>
+  </v-app-bar>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    logged: false,
+  }),
+};
+</script>
