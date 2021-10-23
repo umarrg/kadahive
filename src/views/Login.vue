@@ -1,12 +1,12 @@
 <template>
   <v-app class="">
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="hidden-sm-and-down">
         <v-img src="../assets/st.svg" contain height="100%" width="100%" />
       </v-col>
       <v-col cols="12" md="6">
         <v-container fill-height>
-          <v-card flat width="500">
+          <v-card flat width="500" color="">
             <div class="d-flex justify-center align-center">
               <v-card-text>
                 <div>
@@ -45,7 +45,8 @@
                       v-model="password"
                     ></v-text-field>
                   </v-col>
-                  <div>
+                  <div class="d-flex">
+                    <v-spacer></v-spacer>
                     <ForgotPassword />
                   </div>
                 </v-form>
@@ -75,6 +76,23 @@
                         >Register</v-btn
                       ></span
                     >
+                  </div>
+                </v-col>
+                <v-col cols="12" md="12">
+                  <div class="d-flex align-center justify-center">
+                    <v-divider></v-divider>
+                    <span class="mx-3">or</span>
+                    <v-divider></v-divider>
+                  </div>
+                  <div>
+                    <div class="d-flex align-center justify-center">
+                      <v-btn icon>
+                        <v-icon class="mx-4" color="blue"> mdi-facebook</v-icon>
+                      </v-btn>
+                      <v-btn icon>
+                        <v-icon color="red"> mdi-google</v-icon>
+                      </v-btn>
+                    </div>
                   </div>
                 </v-col>
               </v-card-text>
@@ -141,7 +159,7 @@ export default {
   height: 100%;
 }
 .custom__bg {
-  background: #fafafa;
+  background:  #2b273f;
 }
 .custom__text {
   font-size: 12px;

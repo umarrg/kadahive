@@ -14,38 +14,6 @@ const routes = [
     },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-
-  {
-    path: '/videos',
-    name: 'Video',
-    meta: {
-      showHeader: true
-    },
-
-    component: () => import('../views/Videos.vue')
-  },
-
-  {
-    path: '/userVideos',
-    name: 'Video',
-    meta: {
-      showHeader: false,
-      userDash: true,
-    },
-
-    component: () => import('../views/UserVideos.vue')
-  },
-
-
-
-  {
     path: '/videoView/:id',
     name: 'Video view',
     meta: {
@@ -56,16 +24,7 @@ const routes = [
     component: () => import('../views/VideoView.vue')
   },
 
-  {
-    path: '/userChannels',
-    name: 'user channels',
-    meta: {
-      showHeader: false,
-      userDash: true,
-    },
 
-    component: () => import('../views/UserChannels.vue')
-  },
 
   {
     path: '/login',
@@ -97,7 +56,77 @@ const routes = [
     },
 
     component: () => import('../views/Register.vue')
-  }
+  },
+
+  {
+    path: '/videos',
+    name: 'Video',
+    meta: {
+      showHeader: true
+    },
+
+    component: () => import('../views/Videos.vue')
+  },
+
+  //user routes
+  {
+    path: '/userVideos',
+    name: 'Video',
+    meta: {
+      showHeader: false,
+      userDash: true,
+    },
+
+    component: () => import('../views/user/UserVideos.vue')
+  },
+
+
+  {
+    path: '/watchHistory',
+    name: 'watch',
+    meta: {
+      showHeader: false,
+      userDash: true,
+    },
+    component: () => import('../views/user/WatchHistory.vue')
+  },
+  {
+    path: '/userChannels',
+    name: 'user channels',
+    meta: {
+      showHeader: false,
+      userDash: true,
+    },
+
+    component: () => import('../views/user/UserChannels.vue')
+  },
+
+  {
+    path: '/userProfile',
+    name: 'user profile',
+    meta: {
+      showHeader: false,
+      userDash: true,
+    },
+    component: () => import('../views/user/UserProfile.vue')
+  },
+
+  //creator route
+
+  {
+    path: '/content',
+    name: 'content',
+    meta: {
+      showHeader: false,
+      creatorDash: true,
+    },
+    component: () => import('../views/content/Content.vue')
+  },
+
+
+
+
+
 ]
 
 const router = new VueRouter({

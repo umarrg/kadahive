@@ -2,20 +2,18 @@
   <v-app class="primary">
     <v-container>
       <v-row>
-        <v-col cols="12" md="8">
-        
+        <v-col cols="12" md="12">
+          <div id="">
             <video
               @pause="pause"
-              @timeupdate="timeUpdate"
               width="100%"
               height="100%"
               :src="current"
-              class=""
-              :poster="video.thumbnail"
+              :poster="video.poster"
               controls
-              style="border-radius: 10px"
+              style="border-radius: 10px;"
             ></video>
-         
+          </div>
         </v-col>
         <v-col cols="12" md="4">
           <p class="white--text"><strong>Title</strong> {{ video.title }}</p>
@@ -101,6 +99,9 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
 }
+// #ofc video {
+//   object-fit: cover;
+// }
 .videoView {
   min-height: 100vh;
   //   background-size: cover;

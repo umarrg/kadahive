@@ -2,13 +2,15 @@
   <v-app-bar elevate-on-scroll app color="primary">
     <v-spacer></v-spacer>
     <v-app-bar-title class="white--text">
-      <v-btn text to="/" depressed color="white">Logo</v-btn>
+      <router-link to="/">
+        <span class="white--text text-body-1">Logo </span></router-link
+      >
     </v-app-bar-title>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <div class="d-flex">
       <v-btn text color="white" to="/videos" class="mx-1">videos</v-btn>
-      <v-btn text color="white">admin</v-btn>
+      <v-btn text color="white" to="/content">creator</v-btn>
     </div>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
@@ -29,12 +31,12 @@
         </template>
 
         <v-list>
-          <v-list-item to="/userVideos" dense>
+          <v-list-item to="/userVideos" dense class="text-body-2">
             <v-list-item-title class="px-0 mx-0">
               <v-icon left>mdi-view-dashboard</v-icon> Dashboard
             </v-list-item-title>
           </v-list-item>
-          <v-list-item dense>
+          <v-list-item dense to="/login">
             <v-list-item-title>
               <v-icon>mdi-logout</v-icon> Logout
             </v-list-item-title>

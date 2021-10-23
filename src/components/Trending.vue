@@ -19,17 +19,15 @@
                 <div rounded="lg" :class="{ 'on-hover': hover }">
                   <v-img
                     class="ma-4"
-                    height="200"
-                    width="300"
+                    width="150"
                     contain
-                    :src="item.thumbnail"
+                    :src="item.poster"
                     @click="go(item.id)"
                   >
                     <div class="d-flex align-end justify-end">
                       <span v-if="hover">
-                        {{item.title}}
-                        </span
-                      >
+                        {{ item.title }}
+                      </span>
                     </div>
                   </v-img>
                 </div>
@@ -66,24 +64,6 @@ export default {
     },
     go(id) {
       this.$router.push(`/videoView/${id}`);
-    },
-  },
-
-  computed: {
-    columns() {
-      if (this.$vuetify.breakpoint.xl) {
-        return 4;
-      }
-
-      if (this.$vuetify.breakpoint.lg) {
-        return 3;
-      }
-
-      if (this.$vuetify.breakpoint.md) {
-        return 2;
-      }
-
-      return 1;
     },
   },
 

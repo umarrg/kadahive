@@ -1,8 +1,8 @@
 <template>
   <v-app class="">
     <v-row>
-      <v-col cols="12" md="6">
-         <v-img src="../assets/st.svg" contain height="100%" width="100%" />
+      <v-col cols="12" md="6" class="hidden-sm-and-down">
+        <v-img src="../assets/st.svg" contain height="100%" width="100%" />
       </v-col>
       <v-col cols="12" md="6">
         <v-container fill-height>
@@ -19,7 +19,7 @@
                 </div>
 
                 <v-form v-model="form" ref="form">
-                  <v-col cols="12" md="12">
+                  <v-col cols="12" md="12" class="py-0">
                     <span class="text-body-1">Username</span>
                     <v-text-field
                       outlined
@@ -31,7 +31,7 @@
                       v-model="email"
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="12">
+                  <v-col cols="12" md="12" class="py-0">
                     <span class="text-body-1">Email Address</span>
                     <v-text-field
                       outlined
@@ -56,11 +56,17 @@
                       placeholder="Enter Your Password"
                       v-model="password"
                     ></v-text-field>
+                    <div class="d-flex">
+                      <v-checkbox
+                        v-model="value"
+                        value="value"
+                        label="content creator?"
+                      ></v-checkbox>
+                    </div>
                   </v-col>
-                 
                 </v-form>
 
-                <v-col cols="12" md="12">
+                <v-col cols="12" md="12" class="py-0">
                   <div>
                     <v-btn
                       block
@@ -79,12 +85,29 @@
                 </v-col>
                 <v-col cols="12" md="12">
                   <div class="d-flex align-center justify-center">
-                    <span class=""
-                      > Have an Account?
+                    <span class="">
+                      Have an Account?
                       <v-btn color="primary" text small to="/login"
                         >Login</v-btn
                       ></span
                     >
+                  </div>
+                </v-col>
+                <v-col cols="12" md="12">
+                  <div class="d-flex align-center justify-center">
+                    <v-divider></v-divider>
+                    <span class="mx-3">or</span>
+                    <v-divider></v-divider>
+                  </div>
+                  <div>
+                    <div class="d-flex align-center justify-center">
+                      <v-btn icon>
+                        <v-icon class="mx-4" color="blue"> mdi-facebook</v-icon>
+                      </v-btn>
+                      <v-btn icon>
+                        <v-icon color="red"> mdi-google</v-icon>
+                      </v-btn>
+                    </div>
                   </div>
                 </v-col>
               </v-card-text>
@@ -107,8 +130,7 @@
 
 <script>
 export default {
-  components: {
-  },
+  components: {},
   data: () => ({
     icon: ["mdi-facebook", "mdi-twitter", "mdi-google"],
     email: "",

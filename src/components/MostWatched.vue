@@ -18,9 +18,9 @@
               <div rounded="lg" class="">
                 <v-img
                   class="ma-4"
-                  height="200"
-                  width="300"
-                  :src="item.thumbnail"
+                  contain
+                  width="150"
+                  :src="item.poster"
                   @click="go(item.id)"
                 />
               </div>

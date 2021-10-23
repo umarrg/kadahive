@@ -1,32 +1,49 @@
 <template>
   <v-app class="primary">
     <v-container>
-      <v-row class="mt-8">
-        <v-col cols="12" md="6">
-          <v-text-field
-            solo
-            placeholder="search videos here"
-            id="id"
-          ></v-text-field>
-        </v-col>
+      <v-row>
         <v-col cols="12" md="12">
-         <v-slide-group v-model="model" dark show-arrows class="ma-0" >
+          <v-slide-group v-model="model" dark show-arrows class="ma-0">
             <v-slide-item v-for="item in items" :key="item.id">
               <div rounded="lg" class="">
                 <v-img
                   class="ma-4"
-                  height="200"
-                  width="300"
+                  width="200"
                   contain
-                  :src="item.thumbnail"
+                  :src="item.poster"
+                  @click="go(item.id)"
+                />
+              </div>
+            </v-slide-item>
+          </v-slide-group>
+          <v-slide-group v-model="model" dark show-arrows class="ma-0">
+            <v-slide-item v-for="item in items" :key="item.id">
+              <div rounded="lg" class="">
+                <v-img
+                  class="ma-4"
+                  width="200"
+                  contain
+                  :src="item.poster"
+                  @click="go(item.id)"
+                />
+              </div>
+            </v-slide-item>
+          </v-slide-group>
+          <v-slide-group v-model="model" dark show-arrows class="ma-0">
+            <v-slide-item v-for="item in items" :key="item.id">
+              <div rounded="lg" class="">
+                <v-img
+                  class="ma-4"
+                  width="200"
+                  contain
+                  :src="item.poster"
                   @click="go(item.id)"
                 />
               </div>
             </v-slide-item>
           </v-slide-group>
         </v-col>
-        <v-col cols="12">
-      </v-col>
+        <v-col cols="12"> </v-col>
       </v-row>
     </v-container>
   </v-app>
@@ -34,10 +51,25 @@
 
 <script>
 export default {
- data() {
+  components: {},
+  data() {
     return {
       model: null,
       items: [],
+      caro: [
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+        },
+      ],
     };
   },
   methods: {
@@ -60,8 +92,7 @@ export default {
   },
 
   mounted() {
-    this.fetchTrending()
-  }
-
+    this.fetchTrending();
+  },
 };
 </script>

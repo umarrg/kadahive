@@ -2,7 +2,11 @@
 <template>
   <nav class="mb-0">
     <v-app-bar color="primary" app>
-      <v-app-bar-nav-icon small dark @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+        small
+        dark
+        @click.stop="drawer = !drawer"
+      ></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
     </v-app-bar>
     <v-navigation-drawer
@@ -13,10 +17,13 @@
       width="300"
     >
       <v-layout column align-center class="">
-        <v-flex class="my-12">
-          <router-link to="/">
-            <span class="white--text text-body-1">Logo </span></router-link
-          >
+        <v-flex class="my-4">
+          <div>
+            <v-avatar size="100">
+              <img src="../assets/im.jpeg" alt="picture" />
+            </v-avatar>
+          </div>
+          <span class="white--text mt-5">Your channel</span>
         </v-flex>
       </v-layout>
       <v-divider></v-divider>
@@ -47,14 +54,14 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { icon: "mdi-view-dashboard", text: "My videos", route: "/userVideos" },
+      { icon: "mdi-view-dashboard", text: "Dashboard", route: "/" },
       {
-        icon: "mdi-alpha-c-circle-outline",
-        text: "Channels",
-        route: "userChannels",
+        icon: "mdi-motion-play-outline",
+        text: "Content",
+        route: "/content",
       },
-      { icon: "mdi-history", text: "Watch history", route: "/watchHistory" },
-      { icon: "mdi-account", text: "My profile", route: "/userProfile" },
+      { icon: "mdi-history", text: "Watch history", route: "/" },
+      { icon: "mdi-cog", text: "settings", route: "/" },
     ],
   }),
   methods: {},

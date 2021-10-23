@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <PriNav v-if="$route.meta.showHeader == true" />
-     <UserNav v-if="$route.meta.userDash == true" />
+    <UserNav v-if="$route.meta.userDash == true" />
+    <CreatorNav v-if="$route.meta.creatorDash == true" />
     <v-main>
       <router-view />
     </v-main>
@@ -9,13 +10,15 @@
 </template>
 
 <script>
+import CreatorNav from "../src/components/CreatorNav.vue";
 import UserNav from "./components/UserNav.vue";
 import PriNav from "./components/PrimaryNavbar.vue";
 export default {
   name: "App",
   components: {
     PriNav,
-    UserNav
+    UserNav,
+    CreatorNav,
   },
 
   data: () => ({
