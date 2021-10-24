@@ -16,19 +16,28 @@
           <v-col cols="12" md="12" class="py-0">
             <v-file-input
               outlined
-              placeholder="Upload your video"
+              label="click here to upload"
               prepend-icon=""
               v-model="video"
               counter
               multiple
-              label="video"
               required
               prepend-inner-icon="mdi-video"
             ></v-file-input>
           </v-col>
           <v-col cols="12" md="12" class="py-0">
+            <span>Name</span>
             <v-text-field
-              label="Title*"
+              label="Enter movie name"
+              required
+              outlined
+              v-model="name"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="12" class="py-0">
+            <span>Title</span>
+            <v-text-field
+              label="Enter movie title"
               required
               outlined
               v-model="title"
@@ -43,28 +52,34 @@
             ></v-textarea>
           </v-col>
           <v-col cols="12" md="6" class="py-0">
-            <span>Thumbnail</span>
-
             <v-file-input
               outlined
               accept="image/png, image/jpeg, image/bmp"
               prepend-icon=""
-              placeholder="Thumbnail"
+              label="select movie poster"
               required
               v-model="thumbnail"
               prepend-inner-icon="mdi-camera"
             ></v-file-input>
           </v-col>
           <v-col cols="12" md="6" class="py-0">
-            <span>Genre</span>
-
             <v-select
-              :items="['Anime', 'Bollywood', 'Hollywood', 'Kannywood']"
-              placeholder="Genre*"
+              :items="['Public', 'Restricted']"
+              label="Type"
               required
-              v-model="genres"
+              v-model="type"
               outlined
             ></v-select>
+          </v-col>
+          <v-col cols="12" md="12" class="py-0" v-if="type == 'Restricted'">
+            <span>Price</span>
+            <v-text-field
+              label="Enter movie Price"
+              required
+              outlined
+              suffix="$"
+              v-model="price"
+            ></v-text-field>
           </v-col>
         </v-row>
       </v-card-text>
@@ -85,6 +100,7 @@ export default {
     video: "",
     thumbnail: "",
     title: "",
+    type: "",
     desc: "",
     genres: "",
   }),

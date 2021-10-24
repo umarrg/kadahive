@@ -24,9 +24,9 @@
                     :src="item.poster"
                     @click="go(item.id)"
                   >
-                    <div class="d-flex align-end justify-end">
-                      <span v-if="hover">
-                        {{ item.title }}
+                    <div class="float-end">
+                      <span v-if="hover" class="white--text text-grow text-body-1">
+                        {{ item.name }}
                       </span>
                     </div>
                   </v-img>

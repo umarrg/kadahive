@@ -2,7 +2,7 @@
   <v-app class="primary">
     <v-container>
       <v-row>
-        <v-col cols="12" md="12">
+        <v-col cols="12" md="7">
           <div id="">
             <video
               @pause="pause"
