@@ -4,8 +4,8 @@
       <v-row>
         <v-col cols="12" md="12">
           <div class="text-center">
-            <p class="font-weight-bold white--text">Trending</p>
-            <p class="text-center accent--text">
+            <p class="font-weight-bold white--text text-h4">Trending</p>
+            <p class="text-center accent--text text-subtitle-1">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
               earum magni perferendis itaque
             </p>

@@ -3,14 +3,14 @@
     <v-spacer></v-spacer>
     <v-app-bar-title class="white--text">
       <router-link to="/">
-        <span class="white--text text-body-1">Logo </span></router-link
+        <span class="white--text text-h5">VideoTube</span></router-link
       >
     </v-app-bar-title>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <div class="d-flex">
-      <v-btn text color="white" to="/videos" class="mx-1">videos</v-btn>
-      <v-btn text color="white" to="/content">creator</v-btn>
+      <v-btn  text color="white" to="/videos" class="mx-1 text-h6">videos</v-btn>
+      <v-btn  text color="white" to="/content" class="text-h6">creator</v-btn>
     </div>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
@@ -22,7 +22,7 @@
       <v-avatar size="30" color="white">
         <img src="../assets/im.jpeg" alt="picture" />
       </v-avatar>
-      <span class="mx-2 white--text">Abdullah Gumi</span>
+      <span class="mx-2 white--text text-subtitle-1">Abdullah Gumi</span>
       <v-menu bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn dark icon v-bind="attrs" v-on="on">

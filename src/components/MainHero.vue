@@ -6,8 +6,8 @@
           <v-container fill-height fluid>
             <v-row>
               <v-col>
-                <p class="text-h2 font-weight-bold white--text">Watch it HD</p>
-                <p class="accent--text">
+                <p class="text-h1 font-weight-bold white--text" style="font-size: 42px;">Watch it HD</p>
+                <p class="accent--text text-h1">
                   Discover some of the most amazing contents and watch them in
                   HD
                 </p>
@@ -16,7 +16,7 @@
                   class="text-capitalize"
                   width="196px"
                   height="50px"
-                  ><span class="font-weight-bold">watch</span></v-btn
+                  ><span class="font-weight-bold text-h6">watch</span></v-btn
                 >
               </v-col>
             </v-row>

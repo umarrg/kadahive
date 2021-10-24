@@ -15,7 +15,7 @@
       <v-layout column align-center class="">
         <v-flex class="my-12">
           <router-link to="/">
-            <span class="white--text text-body-1">Logo </span></router-link
+            <span class="white--text text-h5">VideoTube </span></router-link
           >
         </v-flex>
       </v-layout>

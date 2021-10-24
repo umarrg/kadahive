@@ -6,18 +6,10 @@
           <v-container fill-height fluid>
             <v-row>
               <v-col>
-                <p class="text-h2 font-weight-bold white--text">Watch it HD</p>
-                <p class="accent--text">
-                  Discover some of the most amazing contents and watch them in
-                  HD
+                <p class="text-h2 font-weight-bold white--text text-h3">Be a content creator</p>
+                <p class="accent--text text-h3">
+                  Unleash your creativity and join thousands of content creators
                 </p>
-                <v-btn
-                  color="secondary"
-                  class="text-capitalize"
-                  width="196px"
-                  height="50px"
-                  ><span class="font-weight-bold">watch</span></v-btn
-                >
               </v-col>
             </v-row>
           </v-container>
