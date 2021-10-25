@@ -27,7 +27,7 @@ export default {
       ],
       desserts: [
         {
-          name: "Frozen Yogurt",
+          name: "Net Ninja",
           calories: 159,
           fat: 6.0,
           carbs: 24,
@@ -35,7 +35,7 @@ export default {
           iron: "1%",
         },
         {
-          name: "Ice cream sandwich",
+          name: "Titan ",
           calories: 237,
           fat: 9.0,
           carbs: 37,
@@ -43,7 +43,7 @@ export default {
           iron: "1%",
         },
         {
-          name: "Eclair",
+          name: "Code saheer",
           calories: 262,
           fat: 16.0,
           carbs: 23,
@@ -51,7 +51,7 @@ export default {
           iron: "7%",
         },
         {
-          name: "Cupcake",
+          name: "Udemy",
           calories: 305,
           fat: 3.7,
           carbs: 67,
@@ -59,7 +59,7 @@ export default {
           iron: "8%",
         },
         {
-          name: "Gingerbread",
+          name: "Code swot",
           calories: 356,
           fat: 16.0,
           carbs: 49,
@@ -67,7 +67,7 @@ export default {
           iron: "16%",
         },
         {
-          name: "Jelly bean",
+          name: "Jeelly",
           calories: 375,
           fat: 0.0,
           carbs: 94,
@@ -83,7 +83,7 @@ export default {
           iron: "2%",
         },
         {
-          name: "Honeycomb",
+          name: "Peace agent",
           calories: 408,
           fat: 3.2,
           carbs: 87,
@@ -91,7 +91,7 @@ export default {
           iron: "45%",
         },
         {
-          name: "Donut",
+          name: "Mark angel",
           calories: 452,
           fat: 25.0,
           carbs: 51,
@@ -99,7 +99,7 @@ export default {
           iron: "22%",
         },
         {
-          name: "KitKat",
+          name: "Bushkiddo",
           calories: 518,
           fat: 26.0,
           carbs: 65,

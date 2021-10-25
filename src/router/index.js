@@ -75,6 +75,17 @@ const routes = [
     component: () => import('../views/Videos.vue')
   },
 
+  {
+    path: '/wallet',
+    name: 'Wallet',
+    meta: {
+      showHeader: true,
+      requiresAuth: false,
+    },
+
+    component: () => import('../views/wallet.vue')
+  },
+
   //user routes
   {
     path: '/userVideos',

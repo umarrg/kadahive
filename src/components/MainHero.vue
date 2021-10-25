@@ -16,6 +16,7 @@
                   class="text-capitalize"
                   width="196px"
                   height="50px"
+                  to="/videos"
                   ><span class="font-weight-bold text-h6">watch</span></v-btn
                 >
               </v-col>

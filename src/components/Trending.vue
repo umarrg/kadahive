@@ -21,10 +21,10 @@
                     class="ma-4"
                     width="150"
                     contain
-                   :src="item.poster"
+                    :src="item.poster"
                     @click="go(item.id)"
                   >
-                    
+                  
                   </v-img>
                   <span
                     class="white--text d-flex align-center justify-center"

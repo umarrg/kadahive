@@ -54,14 +54,13 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { icon: "mdi-view-dashboard", text: "Dashboard", route: "/" },
       {
         icon: "mdi-motion-play-outline",
         text: "Content",
         route: "/content",
       },
-      { icon: "mdi-history", text: "Watch history", route: "/" },
-      { icon: "mdi-cog", text: "settings", route: "/" },
+      { icon: "mdi-view-dashboard", text: "Dashboard", route: "/wallet" },
+      { icon: "mdi-cog", text: "settings", route: "/userProfile" },
     ],
   }),
   methods: {},
