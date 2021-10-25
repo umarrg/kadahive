@@ -1,7 +1,7 @@
 <template>
   <v-app class="primary">
     <v-container>
-      <v-row>
+      <v-row justify="center" align="center">
         <v-col cols="12" md="3" v-for="item in items" :key="item.id">
           <v-img
             class="my-3"
@@ -11,12 +11,9 @@
             @click="go(item.id)"
           >
           </v-img>
-          <span class="white--text d-flex ">{{
-            item.name
-          }}</span>
+          <span class="white--text d-flex">{{ item.name }}</span>
         </v-col>
       </v-row>
-     
     </v-container>
   </v-app>
 </template>
