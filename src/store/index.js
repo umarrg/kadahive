@@ -116,6 +116,7 @@ export default new Vuex.Store({
             commit('stopLoader')
           } else {
             commit('registerUser', { user: response })
+            router.push("/login")
             commit('SignUpSuccessful')
             commit('stopLoader')
           }
@@ -142,7 +143,7 @@ export default new Vuex.Store({
       })
         .then((r) => r.json())
         .then((response) => {
-       if (response.status === 'failed') {
+          if (response.status === 'failed') {
             commit('stopLoader')
             commit('signInError', response.message)
           } else {
