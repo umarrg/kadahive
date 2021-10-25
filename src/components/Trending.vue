@@ -21,14 +21,10 @@
                     class="ma-4"
                     width="150"
                     contain
-                    :src="item.poster"
+                   :src="item.poster"
                     @click="go(item.id)"
                   >
-                    <div class="float-end" v-if="hover">
-                      <span class="white--text text-grow text-body-1">
-                        {{ item.name }}
-                      </span>
-                    </div>
+                    
                   </v-img>
                   <span
                     class="white--text d-flex align-center justify-center"

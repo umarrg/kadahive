@@ -78,8 +78,8 @@
                     </v-card-title>
                   </v-card>
                   <div class="text-body-1">
-                    <p>Name: {{user.username}}</p>
-                    <p>Email: Abdullahgumi77@gmail.com</p>
+                    <p>Name: {{currentUser.username}}</p>
+                    <p>Email: {{currentUser.email}}</p>
                     <p>Country: Nigeria</p>
                     <p>security Number: 7789900</p>
                   </div>
@@ -93,6 +93,8 @@
   </v-app>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   data: () => ({
     dialog: false,
@@ -102,6 +104,9 @@ export default {
     number: "",
     country: "",
   }),
+    computed: {
+    ...mapGetters(["currentUser", "isAuthenticated"]),
+  },
 };
 </script>
 
