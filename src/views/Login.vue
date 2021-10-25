@@ -86,10 +86,10 @@
                   </div>
                   <div>
                     <div class="d-flex align-center justify-center">
-                      <v-btn icon>
+                      <v-btn icon @click="facebook()">
                         <v-icon class="mx-4" color="blue"> mdi-facebook</v-icon>
                       </v-btn>
-                      <v-btn icon>
+                      <v-btn icon @click="google()">
                         <v-icon color="red"> mdi-google</v-icon>
                       </v-btn>
                     </div>
@@ -115,6 +115,7 @@
 
 <script>
 import ForgotPassword from "../components/ForgotPassword.vue";
+
 export default {
   components: {
     ForgotPassword,
@@ -135,6 +136,10 @@ export default {
     },
   }),
   methods: {
+    google() {
+     
+
+    },
     signIn() {
       const signInData = {
         email: this.email,
@@ -147,7 +152,7 @@ export default {
   },
   computed: {
     signInMetaData() {
-      return "s";
+      return this.$store.state.signIn;
     },
   },
 };
@@ -159,7 +164,7 @@ export default {
   height: 100%;
 }
 .custom__bg {
-  background:  #2b273f;
+  background: #2b273f;
 }
 .custom__text {
   font-size: 12px;

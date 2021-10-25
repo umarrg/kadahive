@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12" md="12">
           <div class="text-center">
-            <p class="font-weight-bold white--text text-h4">Trending</p>
+            <p class="font-weight-bold white--text text-h4 mt-8">Trending</p>
             <p class="text-center accent--text text-subtitle-1">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
               earum magni perferendis itaque
@@ -24,12 +24,16 @@
                     :src="item.poster"
                     @click="go(item.id)"
                   >
-                    <div class="float-end">
-                      <span v-if="hover" class="white--text text-grow text-body-1">
+                    <div class="float-end" v-if="hover">
+                      <span class="white--text text-grow text-body-1">
                         {{ item.name }}
                       </span>
                     </div>
                   </v-img>
+                  <span
+                    class="white--text d-flex align-center justify-center"
+                    >{{ item.name }}</span
+                  >
                 </div>
               </v-hover>
             </v-slide-item>
@@ -50,7 +54,7 @@ export default {
   },
   methods: {
     fetchTrending() {
-      fetch("http://localhost:3000/videos", {
+      fetch("https://kadahive.herokuapp.com/videos", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

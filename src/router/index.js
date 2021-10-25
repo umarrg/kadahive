@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from "../store/index";
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -9,6 +10,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    requiresAuth: false,
     meta: {
       showHeader: true
     },
@@ -16,6 +18,7 @@ const routes = [
   {
     path: '/videoView/:id',
     name: 'Video view',
+    requiresAuth: false,
     meta: {
       showHeader: true,
 
@@ -30,7 +33,8 @@ const routes = [
     path: '/login',
     name: 'login',
     meta: {
-      showHeader: false
+      showHeader: false,
+      requiresAuth: false,
     },
 
     component: () => import('../views/Login.vue')
@@ -43,6 +47,7 @@ const routes = [
     meta: {
       showHeader: false,
       userDash: true,
+      requiresAuth: false,
 
     },
 
@@ -52,7 +57,8 @@ const routes = [
     path: '/register',
     name: 'Register',
     meta: {
-      showHeader: false
+      showHeader: false,
+      requiresAuth: false,
     },
 
     component: () => import('../views/Register.vue')
@@ -62,7 +68,8 @@ const routes = [
     path: '/videos',
     name: 'Video',
     meta: {
-      showHeader: true
+      showHeader: true,
+      requiresAuth: false,
     },
 
     component: () => import('../views/Videos.vue')
@@ -75,6 +82,7 @@ const routes = [
     meta: {
       showHeader: false,
       userDash: true,
+      requiresAuth: true,
     },
 
     component: () => import('../views/user/UserVideos.vue')
@@ -87,6 +95,7 @@ const routes = [
     meta: {
       showHeader: false,
       userDash: true,
+      requiresAuth: true,
     },
     component: () => import('../views/user/WatchHistory.vue')
   },
@@ -96,6 +105,7 @@ const routes = [
     meta: {
       showHeader: false,
       userDash: true,
+      requiresAuth: true,
     },
 
     component: () => import('../views/user/UserChannels.vue')
@@ -107,6 +117,7 @@ const routes = [
     meta: {
       showHeader: false,
       userDash: true,
+      requiresAuth: true,
     },
     component: () => import('../views/user/UserProfile.vue')
   },
@@ -119,6 +130,7 @@ const routes = [
     meta: {
       showHeader: false,
       creatorDash: true,
+      requiresAuth: true,
     },
     component: () => import('../views/content/Content.vue')
   },
@@ -132,5 +144,16 @@ const routes = [
 const router = new VueRouter({
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+  if (requiresAuth && !store.state.user) {
+    next("/login");
+  } else {
+    next();
+  }
+});
 
 export default router

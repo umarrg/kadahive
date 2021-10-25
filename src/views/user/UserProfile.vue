@@ -78,7 +78,7 @@
                     </v-card-title>
                   </v-card>
                   <div class="text-body-1">
-                    <p>Name: Abdullah Gumi</p>
+                    <p>Name: {{user.username}}</p>
                     <p>Email: Abdullahgumi77@gmail.com</p>
                     <p>Country: Nigeria</p>
                     <p>security Number: 7789900</p>
@@ -97,6 +97,7 @@ export default {
   data: () => ({
     dialog: false,
     name: "",
+    user: localStorage.getItem("user"),
     email: "",
     number: "",
     country: "",

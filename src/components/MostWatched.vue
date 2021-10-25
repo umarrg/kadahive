@@ -15,14 +15,23 @@
         <v-col cols="12" md="12" class="px-0 mx-0">
           <v-slide-group v-model="model" dark show-arrows class="ma-0">
             <v-slide-item v-for="item in items" :key="item.id">
-              <div rounded="lg" class="">
+              <div rounded="lg" :class="{ 'on-hover': hover }">
                 <v-img
                   class="ma-4"
-                  contain
                   width="150"
+                  contain
                   :src="item.poster"
                   @click="go(item.id)"
-                />
+                >
+                  <div class="float-end" v-if="hover">
+                    <span class="white--text text-grow text-body-1">
+                      {{ item.name }}
+                    </span>
+                  </div>
+                </v-img>
+                <span class="white--text d-flex align-center justify-center">{{
+                  item.name
+                }}</span>
               </div>
             </v-slide-item>
           </v-slide-group>
@@ -41,7 +50,7 @@ export default {
   },
   methods: {
     fetchTrending() {
-      fetch("http://localhost:3000/videos", {
+      fetch("https://kadahive.herokuapp.com/videos", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

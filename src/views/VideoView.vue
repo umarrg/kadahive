@@ -1,5 +1,5 @@
 <template>
-  <v-app class="primary">
+  <v-app class="primary videoView">
     <v-container>
       <v-row>
         <v-col cols="12" md="7">
@@ -7,17 +7,85 @@
             <video
               @pause="pause"
               width="100%"
-              height="100%"
-              :src="current"
+             
+              :src="video.video"
+              class="custom__video--overflow"
               :poster="video.poster"
               controls
-              style="border-radius: 10px;"
+              style="border-radius: 10px"
             ></video>
           </div>
+          <div>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <h4 class="blue--text text-h4 font-weight-light">
+                    {{ video.title }}
+                  </h4>
+                </v-list-item-title>
+                <v-list-item-subtitle class="d-flex">
+                  <span class="text-body-1 accent--text">33 views</span>
+                  <span class="text-body-1 accent--text mx-4">4/7/2021</span>
+                  <v-spacer></v-spacer>
+                  <span class="accent--text">
+                    <v-btn small icon color="accent" @click="like()"
+                      ><v-icon left>mdi-thumb-up</v-icon></v-btn
+                    >
+                    {{ l }}</span
+                  >
+                  <span class="accent--text mx-3">
+                    <v-btn
+                      small
+                      class="mx-2"
+                      icon
+                      color="accent"
+                      @click="dislike()"
+                      ><v-icon left>mdi-thumb-down</v-icon></v-btn
+                    >
+                    {{ d}}
+                  </span>
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+
+            <div class="d-flex"></div>
+            <v-divider class="grey darken-1 mb-2"></v-divider>
+            <p class="white--text font-weight-light">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+              sed ipsam nemo possimus accusamus nobis autem magnam corporis
+              aliquid voluptate, porro sunt atque quod dignissimos expedita!
+              Optio quod odit consequuntur?
+            </p>
+          </div>
         </v-col>
-        <v-col cols="12" md="4">
-          <p class="white--text"><strong>Title</strong> {{ video.title }}</p>
-          <p class="white--text"><strong>Desc</strong> {{ video.desc }}</p>
+        <v-col cols="12" md="4" lg="4">
+          <div class="d-flex flex-column white--text primary">
+            <v-card
+              tile
+              max-height="512"
+              color="transparent"
+              class="cutom__card--overflow"
+            >
+              <v-list v-for="item in videos" :key="item.id" class="py-0">
+                <v-list-item
+                  @click="changeVideo(item)"
+                  active-class=""
+                  class="px-2"
+                >
+                  <v-list-item-avatar color="" tile aria-dropeffect>
+                    <v-img :src="item.poster"></v-img>
+                  </v-list-item-avatar>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.name }}</v-list-item-title>
+                    <v-list-item-subtitle class="">{{
+                      item.title
+                    }}</v-list-item-subtitle>
+                  </v-list-item-content>
+                </v-list-item>
+                <v-divider></v-divider>
+              </v-list>
+            </v-card>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -29,48 +97,44 @@ export default {
   data: () => ({
     video: [],
     current: {},
+    l: 0,
+    d: 0,
+    videos: [],
     clicked: false,
   }),
 
   methods: {
-    change(e) {
-      console.log("CHANGE EVENT", e);
+    like() {
+      this.l++;
     },
-    durationChange(e) {
-      console.log("DURATION CHANGE EVENT", e);
-    },
-    ended(e) {
-      console.log("ENDED EVENT", e);
+    dislike() {
+      this.d ++;
     },
     pause(e) {
       console.log("PAUSE EVENT", e);
     },
-    play(e) {
-      console.log("PLAY EVENT", e);
-    },
-    playing(e) {
-      console.log("PLAYING EVENT", e);
-    },
-    progress(e) {
-      console.log("PROGRESS EVENT", e);
-    },
-    seeked(e) {
-      console.log("SEEKED EVENT", e);
-    },
-    seeking(e) {
-      console.log("SEEKING EVENT", e);
-    },
-    timeUpdate(e) {
-      console.log("TIME UPDATE EVENT -- CURRENT TIME", e.target.currentTime);
-    },
+
     changeVideo(e) {
       console.log(e);
       this.current = e;
       this.clicked = true;
     },
+    fetchVideos() {
+      fetch("https://kadahive.herokuapp.com/videos", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.videos = res.payload;
+          console.log(res.payload);
+        });
+    },
     fetchVideo() {
       let id = this.$route.params.id;
-      fetch(`http://localhost:3000/videos/${id}`, {
+      fetch(`https://kadahive.herokuapp.com/videos/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -86,6 +150,7 @@ export default {
   },
   mounted() {
     this.fetchVideo();
+    this.fetchVideos();
   },
   beforeUpdate() {},
 };
@@ -99,20 +164,8 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
 }
-// #ofc video {
-//   object-fit: cover;
-// }
+
 .videoView {
   min-height: 100vh;
-  //   background-size: cover;
-  //   background-attachment: fixed;
-}
-// .player-container {
-//     max-height: 200px !important;
-//     min-width: 100%;
-// }
-.vjs-big-play-button {
-  // color: orange !important;
-  background-color: #2c3e50 !important;
 }
 </style>

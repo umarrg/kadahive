@@ -1,22 +1,19 @@
 <template>
-  <v-app class="custom_col"
-    >
+  <v-app class="custom_col">
     <v-container>
       <v-row>
         <v-col cols="12" md="3" v-for="item in items" :key="item.id">
           <v-img
-            class="ma-4"
+            class="my-3"
             width="200"
             contain
             :src="item.poster"
             @click="go(item.id)"
           >
-            <div class="d-flex align-end justify-end">
-              <span v-if="hover">
-                {{ item.title }}
-              </span>
-            </div>
           </v-img>
+          <span class="white--text d-flex ">{{
+            item.name
+          }}</span>
         </v-col>
       </v-row>
     </v-container>
@@ -32,7 +29,7 @@ export default {
   },
   methods: {
     fetchTrending() {
-      fetch("http://localhost:3000/videos", {
+      fetch("https://kadahive.herokuapp.com/videos", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

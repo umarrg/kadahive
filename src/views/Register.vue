@@ -25,10 +25,10 @@
                       outlined
                       placeholder="Enter Your Username"
                       color="#2A4F66"
-                      :rules="[rules.email]"
+                      :rules="[rules.required]"
                       type="email"
                       class="mt-2"
-                      v-model="email"
+                      v-model="username"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12" md="12" class="py-0">
@@ -59,8 +59,8 @@
                     <div class="d-flex">
                       <v-checkbox
                         v-model="value"
-                        value="value"
                         label="content creator?"
+                        value="contentCreator"
                       ></v-checkbox>
                     </div>
                   </v-col>
@@ -75,11 +75,11 @@
                       :loading="signInMetaData.signInLoading"
                       :disabled="signInMetaData.signInDisabled"
                       color="primary"
-                      @click="signIn()"
+                      @click="signUp()"
                       class="white--text text-capitalize px-8 mt-1"
                       elevation="3"
                     >
-                      Login</v-btn
+                      Register</v-btn
                     >
                   </div>
                 </v-col>
@@ -135,7 +135,9 @@ export default {
     icon: ["mdi-facebook", "mdi-twitter", "mdi-google"],
     email: "",
     password: "",
+    value: "user",
     showPassword: "",
+    username: "",
     form: false,
     rules: {
       email: (v) => !!(v || "").match(/@/) || "Please enter a valid email",
@@ -147,19 +149,21 @@ export default {
     },
   }),
   methods: {
-    signIn() {
-      const signInData = {
+    signUp() {
+      const signUpData = {
+        userType: this.value,
         email: this.email,
         password: this.password,
+        username: this.username,
       };
       if (this.$refs.form.validate()) {
-        this.$store.dispatch("SIGN_IN", signInData);
+        this.$store.dispatch("SIGN_UP", signUpData);
       }
     },
   },
   computed: {
     signInMetaData() {
-      return "s";
+      return this.$store.state.signIn;
     },
   },
 };
