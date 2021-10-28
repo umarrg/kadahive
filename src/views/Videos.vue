@@ -1,7 +1,7 @@
 <template>
   <v-app class="primary">
     <v-container>
-      <v-row justify="center" align="center">
+      <v-row >
         <v-col cols="12" md="3" v-for="item in items" :key="item.id">
           <v-img
             class="my-3"

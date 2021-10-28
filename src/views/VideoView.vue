@@ -7,7 +7,6 @@
             <video
               @pause="pause"
               width="100%"
-             
               :src="video.video"
               class="custom__video--overflow"
               :poster="video.poster"
@@ -42,7 +41,7 @@
                       @click="dislike()"
                       ><v-icon left>mdi-thumb-down</v-icon></v-btn
                     >
-                    {{ d}}
+                    {{ d }}
                   </span>
                 </v-list-item-subtitle>
               </v-list-item-content>
@@ -60,31 +59,29 @@
         </v-col>
         <v-col cols="12" md="4" lg="4">
           <div class="d-flex flex-column white--text primary">
-            <v-card
-              tile
-              max-height="512"
-              color="transparent"
-              class="cutom__card--overflow"
-            >
-              <v-list v-for="item in videos" :key="item.id" class="py-0">
+            <div tile  class="cutom__card--overflow">
+              <v-list
+                class="py-0"
+                color="secondary"
+                v-for="item in videos"
+                :key="item.id"
+              >
                 <v-list-item
-                  @click="changeVideo(item)"
                   active-class=""
                   class="px-2"
+                  @click="changeVideo(item)"
                 >
                   <v-list-item-avatar color="" tile aria-dropeffect>
                     <v-img :src="item.poster"></v-img>
                   </v-list-item-avatar>
-                  <v-list-item-content>
+                  <v-list-item-content class="white--text">
                     <v-list-item-title>{{ item.name }}</v-list-item-title>
-                    <v-list-item-subtitle class="">{{
-                      item.title
-                    }}</v-list-item-subtitle>
+                   
                   </v-list-item-content>
                 </v-list-item>
-                <v-divider></v-divider>
+                <v-divider color="accent"></v-divider>
               </v-list>
-            </v-card>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -108,7 +105,7 @@ export default {
       this.l++;
     },
     dislike() {
-      this.d ++;
+      this.d++;
     },
     pause(e) {
       console.log("PAUSE EVENT", e);
@@ -163,8 +160,12 @@ export default {
 .cutom__card--overflow {
   overflow-x: hidden;
   overflow-y: auto;
+  height: 514px;
 }
 
+.custom_div {
+  background: white;
+}
 .videoView {
   min-height: 100vh;
 }
