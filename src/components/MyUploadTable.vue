@@ -1,14 +1,9 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    :items-per-page="5"
-    class="elevation-1"
-  >
+  <v-data-table :headers="headers" :items="items" class="elevation-1">
     <template v-slot:item.name="{ item }">
       <v-list-item>
         <v-list-item-avatar tile size="80">
-          <v-img src="../assets/im.jpeg"></v-img>
+          <v-img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/movie-poster-template-design-21a1c803fe4ff4b858de24f5c91ec57f_screen.jpg?ts=1574144362"></v-img>
         </v-list-item-avatar>
         <v-list-item-content>
           <v-list-item-title>
@@ -31,92 +26,90 @@ export default {
           sortable: false,
           value: "name",
         },
-        { text: "Restrictions", value: "calories" },
-        { text: "Date", value: "fat" },
-        { text: "Views", value: "fat" },
-        { text: "comment", value: "fat" },
-        { text: "Likes (vs. dislikes)", value: "fat" },
+        { text: "Date", value: "date" },
+        { text: "Access Type", value: "type" },
+        { text: "Views", value: "views" },
+        { text: "comment", value: "comment" },
       ],
-      desserts: [
+      items: [
         {
-          name: "Frozen Yogurt",
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
+          name: "Attack on titans",
+          date: "2/3/2021",
+          type: "public",
+          views: "400",
+          comment: "40",
           iron: "1%",
         },
         {
-          name: "Ice cream sandwich",
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          iron: "1%",
+          name: "silicon valley",
+          date: "2/3/2021",
+          type: "restricted",
+          views: "400",
+          comment: "40",
         },
         {
-          name: "Eclair",
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: "7%",
+          name: "Promise Neverland",
+          date: "2/3/2021",
+          type: "restricted",
+          views: "400",
+          comment: "40",
         },
         {
-          name: "Cupcake",
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          iron: "8%",
+          name: "Everything",
+          date: "2/3/2021",
+          views: "400",
+          comment: "40",
+          type: "restricted",
         },
         {
-          name: "Gingerbread",
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
+          name: "Avatar",
+          date: "2/3/2021",
+
+          views: "400",
+          comment: "40",
+          type: "public",
+
           iron: "16%",
         },
         {
-          name: "Jelly bean",
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
+          name: "Titans",
+          date: "2/3/2021",
+          views: "400",
+          comment: "40",
+          type: "restricted",
+
           iron: "0%",
         },
         {
-          name: "Lollipop",
-          calories: 392,
+          name: "Justice",
+          date: "2/3/2021",
+          type: "restricted",
           fat: 0.2,
-          carbs: 98,
-          protein: 0,
+          views: "400",
+          comment: "40",
           iron: "2%",
         },
         {
-          name: "Honeycomb",
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-          iron: "45%",
+          name: "Dice",
+          date: "2/3/2021",
+          views: "400",
+          comment: "40",
+
+          type: "public",
         },
         {
           name: "Donut",
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-          iron: "22%",
+          date: "2/3/2021",
+          views: "400",
+          comment: "40",
+          type: "restricted",
         },
         {
           name: "KitKat",
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: "6%",
+          date: "2/3/2021",
+          views: "400",
+          comment: "40",
+          type: "restricted",
         },
       ],
     };

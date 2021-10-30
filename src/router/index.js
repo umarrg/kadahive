@@ -80,6 +80,7 @@ const routes = [
     name: 'Wallet',
     meta: {
       showHeader: true,
+      userDash: true,
       requiresAuth: false,
     },
 
@@ -146,7 +147,16 @@ const routes = [
     component: () => import('../views/content/Content.vue')
   },
 
-
+  {
+    path: '/creatorProfile',
+    name: 'creator profile',
+    meta: {
+      showHeader: false,
+      creatorDash: true,
+      requiresAuth: true,
+    },
+    component: () => import('../views/user/UserProfile.vue')
+  },
 
 
 

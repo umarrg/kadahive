@@ -11,8 +11,10 @@
             </p>
           </div>
         </v-col>
-
         <v-col cols="12" md="12" class="px-0 mx-0">
+          <div class="text-center" v-if="loading">
+            <v-progress-circular indeterminate color="white" ></v-progress-circular>
+          </div>
           <v-slide-group v-model="model" dark show-arrows class="ma-0">
             <v-slide-item v-for="item in items" :key="item.id">
               <v-hover v-slot="{ hover }">
@@ -21,10 +23,10 @@
                     class="ma-4"
                     width="150"
                     contain
+                    height="200"
                     :src="item.poster"
-                    @click="go(item.id)"
+                    @click="go(item)"
                   >
-                  
                   </v-img>
                   <span
                     class="white--text d-flex align-center justify-center"
@@ -46,10 +48,12 @@ export default {
     return {
       model: null,
       items: [],
+      loading: false,
     };
   },
   methods: {
     fetchTrending() {
+      this.loading = true;
       fetch("https://kadahive.herokuapp.com/videos", {
         method: "GET",
         headers: {
@@ -59,11 +63,17 @@ export default {
         .then((res) => res.json())
         .then((res) => {
           this.items = res.payload;
+          this.loading = false;
           console.log(res.payload);
         });
     },
-    go(id) {
-      this.$router.push(`/videoView/${id}`);
+    go(item) {
+      console.log("ddddddd", item.type);
+      if (item.type === "restricted") {
+        this.$router.push("/wallet");
+      } else {
+        this.$router.push(`/videoView/${item.id}`);
+      }
     },
   },
 

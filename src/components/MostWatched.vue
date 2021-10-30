@@ -13,12 +13,16 @@
         </v-col>
 
         <v-col cols="12" md="12" class="px-0 mx-0">
+          <div class="text-center" v-if="loading">
+            <v-progress-circular indeterminate color="white" ></v-progress-circular>
+          </div>
           <v-slide-group v-model="model" dark show-arrows class="ma-0">
             <v-slide-item v-for="item in items" :key="item.id">
               <div rounded="lg" :class="{ 'on-hover': hover }">
                 <v-img
                   class="ma-4"
                   width="150"
+                  height="200"
                   contain
                   :src="item.poster"
                   @click="go(item.id)"
@@ -46,10 +50,12 @@ export default {
     return {
       model: null,
       items: [],
+      loading: false,
     };
   },
   methods: {
     fetchTrending() {
+      this.loading = true;
       fetch("https://kadahive.herokuapp.com/videos", {
         method: "GET",
         headers: {
@@ -59,6 +65,7 @@ export default {
         .then((res) => res.json())
         .then((res) => {
           this.items = res.payload;
+          this.loading = false
           console.log(res.payload);
         });
     },

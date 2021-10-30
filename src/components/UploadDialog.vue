@@ -1,7 +1,9 @@
 <template>
   <v-dialog v-model="dialog" persistent width="600px">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn color="primary" dark v-bind="attrs" v-on="on"> Create </v-btn>
+      <v-btn color="secondary" dark v-bind="attrs" v-on="on">
+        Create
+      </v-btn>
     </template>
     <v-card dark>
       <v-card-title>
@@ -26,7 +28,6 @@
             ></v-file-input>
           </v-col>
           <v-col cols="12" md="12" class="py-0">
-            <span>Name</span>
             <v-text-field
               label="Enter movie name"
               required
@@ -35,7 +36,6 @@
             ></v-text-field>
           </v-col>
           <v-col cols="12" md="12" class="py-0">
-            <span>Title</span>
             <v-text-field
               label="Enter movie title"
               required
@@ -72,7 +72,6 @@
             ></v-select>
           </v-col>
           <v-col cols="12" md="12" class="py-0" v-if="type == 'Restricted'">
-            <span>Price</span>
             <v-text-field
               label="Enter movie Price"
               required
@@ -103,6 +102,7 @@ export default {
     type: "",
     desc: "",
     genres: "",
+    price: "",
   }),
   methods: {
     save() {
@@ -111,7 +111,7 @@ export default {
         thumbail: this.thumbnail,
         title: this.title,
         desc: this.desc,
-        genre: this.genres,
+        price: this.price,
       };
 
       console.log("upload", data);

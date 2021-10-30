@@ -54,6 +54,7 @@ export default {
         route: "userChannels",
       },
       { icon: "mdi-history", text: "Watch history", route: "/watchHistory" },
+      { icon: "mdi-wallet", text: "Wallet", route: "/wallet" },
       { icon: "mdi-account", text: "My profile", route: "/userProfile" },
     ],
   }),

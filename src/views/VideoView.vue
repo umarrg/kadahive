@@ -7,6 +7,7 @@
             <video
               @pause="pause"
               width="100%"
+              height="400px"
               :src="video.video"
               class="custom__video--overflow"
               :poster="video.poster"
