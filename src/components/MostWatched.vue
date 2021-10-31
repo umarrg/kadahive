@@ -14,7 +14,10 @@
 
         <v-col cols="12" md="12" class="px-0 mx-0">
           <div class="text-center" v-if="loading">
-            <v-progress-circular indeterminate color="white" ></v-progress-circular>
+            <v-progress-circular
+              indeterminate
+              color="white"
+            ></v-progress-circular>
           </div>
           <v-slide-group v-model="model" dark show-arrows class="ma-0">
             <v-slide-item v-for="item in items" :key="item.id">
@@ -25,7 +28,7 @@
                   height="200"
                   contain
                   :src="item.poster"
-                  @click="go(item.id)"
+                  @click="go(item)"
                 >
                   <div class="float-end" v-if="hover">
                     <span class="white--text text-grow text-body-1">
@@ -65,12 +68,16 @@ export default {
         .then((res) => res.json())
         .then((res) => {
           this.items = res.payload;
-          this.loading = false
+          this.loading = false;
           console.log(res.payload);
         });
     },
-    go(id) {
-      this.$router.push(`/videoView/${id}`);
+    go(item) {
+      if (item.type === "restricted") {
+        this.$router.push("/buy/" + item.id);
+      } else {
+        this.$router.push(`/videoView/${item.id}`);
+      }
     },
   },
 

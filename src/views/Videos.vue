@@ -24,7 +24,7 @@
                 contain
                 height="300"
                 :src="item.poster"
-                @click="go(item.id)"
+                @click="go(item)"
               >
               </v-img>
             </v-flex>
@@ -77,8 +77,12 @@ export default {
           console.log(res.payload);
         });
     },
-    go(id) {
-      this.$router.push(`/videoView/${id}`);
+    go(item) {
+      if (item.type === "restricted") {
+        this.$router.push("/buy/" + item.id);
+      } else {
+        this.$router.push(`/videoView/${item.id}`);
+      }
     },
   },
 

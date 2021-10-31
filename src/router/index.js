@@ -87,6 +87,18 @@ const routes = [
     component: () => import('../views/wallet.vue')
   },
 
+  {
+    path: '/buy/:id',
+    name: 'Buy',
+    meta: {
+      showHeader: true,
+      userDash: false,
+      requiresAuth: true,
+    },
+
+    component: () => import('../views/wallet.vue')
+  },
+
   //user routes
   {
     path: '/userVideos',

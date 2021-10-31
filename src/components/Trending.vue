@@ -13,7 +13,10 @@
         </v-col>
         <v-col cols="12" md="12" class="px-0 mx-0">
           <div class="text-center" v-if="loading">
-            <v-progress-circular indeterminate color="white" ></v-progress-circular>
+            <v-progress-circular
+              indeterminate
+              color="white"
+            ></v-progress-circular>
           </div>
           <v-slide-group v-model="model" dark show-arrows class="ma-0">
             <v-slide-item v-for="item in items" :key="item.id">
@@ -70,7 +73,7 @@ export default {
     go(item) {
       console.log("ddddddd", item.type);
       if (item.type === "restricted") {
-        this.$router.push("/wallet");
+        this.$router.push("/buy/" + item.id);
       } else {
         this.$router.push(`/videoView/${item.id}`);
       }
