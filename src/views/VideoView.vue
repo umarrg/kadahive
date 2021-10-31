@@ -60,24 +60,19 @@
         </v-col>
         <v-col cols="12" md="4" lg="4">
           <div class="d-flex flex-column white--text primary">
-            <div tile  class="cutom__card--overflow">
+            <div tile class="cutom__card--overflow">
               <v-list
                 class="py-0"
                 color="secondary"
                 v-for="item in videos"
                 :key="item.id"
               >
-                <v-list-item
-                  active-class=""
-                  class="px-2"
-                  @click="changeVideo(item)"
-                >
+                <v-list-item active-class="" class="px-2" @click="go(item)">
                   <v-list-item-avatar color="" tile aria-dropeffect>
                     <v-img :src="item.poster"></v-img>
                   </v-list-item-avatar>
                   <v-list-item-content class="white--text">
                     <v-list-item-title>{{ item.name }}</v-list-item-title>
-                   
                   </v-list-item-content>
                 </v-list-item>
                 <v-divider color="accent"></v-divider>
@@ -111,12 +106,15 @@ export default {
     pause(e) {
       console.log("PAUSE EVENT", e);
     },
-
-    changeVideo(e) {
-      console.log(e);
-      this.current = e;
-      this.clicked = true;
+    go(item) {
+      if (item.type === "restricted") {
+        this.$router.push("/buy/" + item.id);
+      } else {
+        this.$router.push(`/videoView/${item.id}`);
+    
+      }
     },
+
     fetchVideos() {
       fetch("https://kadahive.herokuapp.com/videos", {
         method: "GET",

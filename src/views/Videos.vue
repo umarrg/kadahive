@@ -2,10 +2,17 @@
   <v-app class="primary">
     <v-container>
       <v-row>
+        <v-col cols="12" md="12" >
+          <v-text-field
+            label="Search videos here"
+            v-model="global"
+            solo
+          ></v-text-field>
+        </v-col>
         <v-col
           cols="12"
           md="3"
-          v-for="item in items"
+          v-for="item in search"
           :key="item.id"
           class="text-xs-center text-center"
         >
@@ -45,6 +52,7 @@ export default {
       model: null,
       items: [],
       loading: false,
+      global: "",
       caro: [
         {
           src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
@@ -60,6 +68,16 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    search() {
+      return this.items.filter((vd) => {
+        return this.global
+          .toLowerCase()
+          .split(" ")
+          .every((v) => vd.name.toLowerCase().includes(v));
+      });
+    },
   },
   methods: {
     fetchTrending() {
