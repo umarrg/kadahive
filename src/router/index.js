@@ -84,7 +84,7 @@ const routes = [
       requiresAuth: false,
     },
 
-    component: () => import('../views/wallet.vue')
+    component: () => import('../views/./content/MyWallet.vue')
   },
 
   {
@@ -96,7 +96,7 @@ const routes = [
       requiresAuth: true,
     },
 
-    component: () => import('../views/wallet.vue')
+    component: () => import('../views/payment.vue')
   },
 
   //user routes

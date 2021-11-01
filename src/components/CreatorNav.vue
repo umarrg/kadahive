@@ -59,7 +59,6 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { icon: "mdi-view-dashboard", text: "Dashboard", route: "/wallet" },
       {
         icon: "mdi-motion-play-outline",
         text: "Content",

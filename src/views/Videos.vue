@@ -3,11 +3,14 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="12" >
-          <v-text-field
-            label="Search videos here"
-            v-model="global"
-            solo
-          ></v-text-field>
+          <v-col cols="12" md="6" class="py-0">
+            <v-text-field
+              label="Search videos here"
+              v-model="global"
+              prepend-inner-icon="mdi-magnify"
+              solo
+            ></v-text-field>
+          </v-col>
         </v-col>
         <v-col
           cols="12"
