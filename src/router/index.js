@@ -18,9 +18,10 @@ const routes = [
   {
     path: '/videoView/:id',
     name: 'Video view',
-    requiresAuth: false,
+
     meta: {
       showHeader: true,
+      requiresAuth: true,
 
     },
 
